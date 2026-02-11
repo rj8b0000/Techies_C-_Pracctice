@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Program
 {
@@ -35,12 +36,28 @@ namespace Program
             }
         }
 
+        public static double SumAllNum(params double[] numbers)
+        {
+            double sum = 0;
+            if (numbers == null || numbers.Length == 0)
+            {
+                return 0;
+            }
+            foreach(double i in numbers)
+            {
+                sum = sum + i;
+            }
+            return sum;
+        }
+
         public static void Main(string[] args)
         {
-            Console.WriteLine("Enter your case: ");
-            int userCase = int.Parse(Console.ReadLine());
-
-            CallWithNamedArguments(userCase);
+            //Console.WriteLine("Enter your case: ");
+            //int userCase = int.Parse(Console.ReadLine());
+            //CallWithNamedArguments(userCase);
+            Console.WriteLine(SumAllNum(10, 20, 30));
+            Console.WriteLine(SumAllNum(34.5, 34.2, 43));
+            Console.WriteLine(SumAllNum());
         }
     }
 }
